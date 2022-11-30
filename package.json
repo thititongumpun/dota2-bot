@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/app.ts",
-    "build": "tsc --project ."
+    "build": "tsc --project .",
+    "start": "node dist/app.js"
   },
   "dependencies": {
     "@line/bot-sdk": "^7.5.2",
