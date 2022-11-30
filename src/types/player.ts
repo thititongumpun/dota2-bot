@@ -1,16 +1,16 @@
 export const getPlayerId = (playerName: string): number => {
   let playerId: number = 0;
-  switch (playerName.trim().replace(/ /g,'')) {
-    case playerName.match(/^แจค/)?.input || "เดอะแจค":
+  switch (playerName.trim().replace(/ /g, "")) {
+    case "เดอะแจค":
       playerId = 304906167;
       break;
-    case playerName.match(/^บอล/)?.input || "พี่ชาย":
+    case "พี่ชาย":
       playerId = 233284542;
       break;
-    case playerName.match(/^นอส/)?.input || "แครี่ที่ดีที่สุดในยุคนี้":
+    case "แครี่ที่ดีที่สุดในยุคนี้":
       playerId = 100719034;
       break;
-    case playerName.match(/^ตี๋/)?.input:
+    case "เดอะตี๋":
       playerId = 152744830;
       break;
     default:
@@ -19,3 +19,5 @@ export const getPlayerId = (playerName: string): number => {
   }
   return playerId;
 };
+
+export const playerName: string[] = ["เดอะแจค", "พี่ชาย", "แครี่ที่ดีที่สุดในยุคนี้", "เดอะตี๋"];

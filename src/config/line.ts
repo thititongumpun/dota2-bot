@@ -1,4 +1,4 @@
-import { getPlayerId } from "./../types/player";
+import { getPlayerId, playerName } from "./../types/player";
 import {
   Client,
   WebhookEvent,
@@ -30,14 +30,13 @@ export const handleEvent = async (
 
   const wl = await getPlayerWL(playerId);
   let textResponse: string = JSON.stringify(wl);
-  if (playerId === 0 || playerId === undefined) {
-    textResponse = "ไม่มีหรอกไอสัส";
+
+  if (playerName.indexOf(text) > -1) {
+    const response: TextMessage = {
+      type: "text",
+      text: textResponse,
+    };
+
+    await client.replyMessage(replyToken, response);
   }
-
-  const response: TextMessage = {
-    type: "text",
-    text: textResponse,
-  };
-
-  await client.replyMessage(replyToken, response);
 };
