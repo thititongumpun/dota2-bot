@@ -13,6 +13,12 @@ export const getPlayerId = (playerName: string): number => {
     case "เดอะตี๋":
       playerId = 152744830;
       break;
+    case "จิเบิก":
+      playerId = 103902809;
+      break;
+    case "มอจี":
+      playerId = 179551302;
+      break;
     default:
       playerId = 0;
       break;
@@ -20,4 +26,11 @@ export const getPlayerId = (playerName: string): number => {
   return playerId;
 };
 
-export const playerName: string[] = ["เดอะแจค", "พี่ชาย", "แครี่ที่ดีที่สุดในยุคนี้", "เดอะตี๋"];
+export const playerName: string[] = [
+  "เดอะแจค",
+  "พี่ชาย",
+  "แครี่ที่ดีที่สุดในยุคนี้",
+  "เดอะตี๋",
+  "จิเบิก",
+  "มอจี",
+];
