@@ -1,13 +1,13 @@
 export const getPlayerId = (playerName: string): number => {
   let playerId: number = 0;
   switch (playerName.trim().replace(/ /g, "")) {
-    case "เดอะแจค":
+    case "เดอะแจค" || "เดอะแจ็ค":
       playerId = 304906167;
       break;
-    case "พี่ชาย":
+    case "พี่ชาย" || "แอสเซนตี้ฝ่ายเคลม":
       playerId = 233284542;
       break;
-    case "แครี่ที่ดีที่สุดในยุคนี้":
+    case "แครี่ที่ดีที่สุดในยุคนี้" || "เดอะนอส":
       playerId = 100719034;
       break;
     case "เดอะตี๋":
