@@ -8,7 +8,7 @@ export const getPlayerId = (playerName: string): number => {
       playerId = 233284542;
       break;
     case "แครี่ที่ดีที่สุดในยุคนี้" || "เดอะนอส":
-      playerId = 100719034;
+      playerId = 419877401;
       break;
     case "เดอะตี๋":
       playerId = 152744830;
