@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Player } from "../types/playerwl";
+import { Player } from "../types/stats";
 
 export const getPlayerWL = async (playerId: number) => {
   try {

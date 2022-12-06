@@ -3,8 +3,9 @@ export type Player = {
   lose: number;
 };
 
-export type StatusResponse = {
+export type StatsResponse = {
   playerId: number;
-  name: string;
+  playerName: string;
+  avatar: string;
   wl: string | Player;
 };

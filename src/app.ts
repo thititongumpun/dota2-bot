@@ -5,7 +5,8 @@ import * as dotenv from "dotenv";
 import { middleware, WebhookEvent } from "@line/bot-sdk";
 import { getPlayerWL } from "./services/getPlayerwl";
 import { config, handleEvent } from "./config/line";
-import { StatusResponse } from "./types/playerwl";
+import { StatsResponse } from "./types/stats";
+import { players } from "./data/players";
 dotenv.config();
 
 const app: Express = express();
@@ -49,11 +50,16 @@ app.get("/", async (_: Request, res: Response): Promise<Response> => {
 });
 
 app.get("/stats", async (_: Request, res: Response) => {
-  let response: StatusResponse[] = [];
-  for (let player of playersName) {
-    const playerId = getPlayerId(player);
+  let response: StatsResponse[] = [];
+  for (let player of players) {
+    const playerId = getPlayerId(player.playerName);
     const playerWL = await getPlayerWL(playerId);
-    response.push({ playerId: playerId, name: player, wl: playerWL });
+    response.push({
+      playerId: playerId,
+      playerName: player.playerName,
+      avatar: player.avatar,
+      wl: playerWL,
+    });
   }
   res.status(200).send(response);
 });
