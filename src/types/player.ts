@@ -26,14 +26,11 @@ export const getPlayerId = (playerName: string): number => {
   return playerId;
 };
 
-export const playerName: string[] = [
+export const playersName: string[] = [
   "เดอะแจค",
   "พี่ชาย",
   "แครี่ที่ดีที่สุดในยุคนี้",
   "เดอะตี๋",
   "จิเบิก",
-  "มอจี",
-  "เดอะแจ็ค",
-  "แอสเซนตี้ฝ่ายเคลม",
-  "เดอะนอส",
+  "มอจี"
 ];

@@ -1,19 +1,17 @@
+import { getPlayerId, playersName } from "./types/player";
 import express, { Express, Request, Response } from "express";
 import morgan from "morgan";
 import * as dotenv from "dotenv";
 import { middleware, WebhookEvent } from "@line/bot-sdk";
 import { getPlayerWL } from "./services/getPlayerwl";
 import { config, handleEvent } from "./config/line";
+import { StatusResponse } from "./types/playerwl";
 dotenv.config();
 
 const app: Express = express();
 const PORT = process.env.PORT || 8080;
 
 app.use(morgan("tiny"));
-
-app.get("/:playerId", async (req: Request, res: Response) => {
-  res.send(await getPlayerWL(+req.params.playerId));
-});
 
 app.post(
   "/webhook",
@@ -48,6 +46,16 @@ app.get("/", async (_: Request, res: Response): Promise<Response> => {
     status: "success",
     message: "Connected successfully!",
   });
+});
+
+app.get("/stats", async (_: Request, res: Response) => {
+  let response: StatusResponse[] = [];
+  for (let player of playersName) {
+    const playerId = getPlayerId(player);
+    const playerWL = await getPlayerWL(playerId);
+    response.push({ playerId: playerId, name: player, wl: playerWL });
+  }
+  res.status(200).send(response);
 });
 
 app.listen(PORT, () => {

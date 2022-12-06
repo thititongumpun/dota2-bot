@@ -1,4 +1,4 @@
-import { getPlayerId, playerName } from "./../types/player";
+import { getPlayerId, playersName } from "./../types/player";
 import {
   Client,
   WebhookEvent,
@@ -31,7 +31,7 @@ export const handleEvent = async (
   const wl = await getPlayerWL(playerId);
   let textResponse: string = JSON.stringify(wl);
 
-  if (playerName.indexOf(text) > -1) {
+  if (playersName.indexOf(text) > -1) {
     const response: TextMessage = {
       type: "text",
       text: textResponse,
