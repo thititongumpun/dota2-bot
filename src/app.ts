@@ -5,7 +5,7 @@ import * as dotenv from "dotenv";
 import { middleware, WebhookEvent } from "@line/bot-sdk";
 import { getPlayerWL } from "./services/getPlayerwl";
 import { config, handleEvent } from "./config/line";
-import { StatsResponse } from "./types/stats";
+import { Player, StatsResponse } from "./types/stats";
 import { players } from "./data/players";
 dotenv.config();
 

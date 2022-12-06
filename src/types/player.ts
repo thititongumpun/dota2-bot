@@ -19,6 +19,18 @@ export const getPlayerId = (playerName: string): number => {
     case "มอจี":
       playerId = 179551302;
       break;
+    case "xzenบ้องไม้ไผ่":
+      playerId = 107150877;
+      break;
+    case "ไอเด็ก":
+      playerId = 178002536;
+      break;
+    case "ไอชุน":
+      playerId = 203825222;
+      break;
+    case "ไอฉิน":
+      playerId = 194723630;
+      break;
     default:
       playerId = 0;
       break;
@@ -32,5 +44,9 @@ export const playersName: string[] = [
   "แครี่ที่ดีที่สุดในยุคนี้",
   "เดอะตี๋",
   "จิเบิก",
-  "มอจี"
+  "มอจี",
+  "xzenบ้องไม้ไผ่",
+  "ไอชุน",
+  "ไอชุน",
+  "ไอฉิน",
 ];

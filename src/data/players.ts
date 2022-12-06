@@ -64,7 +64,47 @@ export const players: Player[] = [
     playerId: 0,
     playerName: "มอจี",
     avatar:
-      "https://cdn.shopify.com/s/files/1/0603/2942/7203/files/Image_7-17-22_at_12.56_PM_467x.jpg?v=1658084189",
+      "https://m.media-amazon.com/images/M/MV5BMGMyMGM4OTktMzg5NS00NGQ0LWI1MGEtZmE2NjJiODc0YjZmXkEyXkFqcGdeQXVyMjQ4MDgzMjQ@._V1_FMjpg_UX1000_.jpg",
+    wl: {
+      win: 0,
+      lose: 0,
+    },
+  },
+  {
+    playerId: 0,
+    playerName: "ไอเด็ก",
+    avatar:
+      "https://scontent.fbkk2-8.fna.fbcdn.net/v/t31.18172-8/1276338_574629789266653_1454487027_o.jpg?_nc_cat=100&ccb=1-7&_nc_sid=174925&_nc_ohc=VjKiPJP7cIIAX-lGL0E&_nc_ht=scontent.fbkk2-8.fna&oh=00_AfCl8iF1ev6DEH0nKYFskji5a-TmJVoA8ch6P1PD5T7zTw&oe=63B6D6C6",
+    wl: {
+      win: 0,
+      lose: 0,
+    },
+  },
+  {
+    playerId: 0,
+    playerName: "xzenบ้องไม้ไผ่",
+    avatar:
+      "https://scontent.fbkk2-8.fna.fbcdn.net/v/t1.6435-9/208134792_10222815774841639_5064155828005113129_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=tODWpk_UC0oAX_pcrm4&_nc_ht=scontent.fbkk2-8.fna&oh=00_AfD-GNOD-QPpU65MzRN68zzTJTlUco1DuuphRLgcC99wJA&oe=63B6D58E",
+    wl: {
+      win: 0,
+      lose: 0,
+    },
+  },
+  {
+    playerId: 0,
+    playerName: "ไอฉิน",
+    avatar:
+      "https://scontent.fbkk29-4.fna.fbcdn.net/v/t39.30808-6/296171381_201372028895003_4381235094819106291_n.png?_nc_cat=102&ccb=1-7&_nc_sid=e3f864&_nc_ohc=es-RF-6dqeAAX-lzZPf&tn=hb2bzZRQxS9fxVMW&_nc_ht=scontent.fbkk29-4.fna&oh=00_AfBI8SIHfUeDsTx9dS_cHW6Pyat4NHiZmPBWNMdpqnHTnw&oe=63943E2C",
+    wl: {
+      win: 0,
+      lose: 0,
+    },
+  },
+  {
+    playerId: 0,
+    playerName: "ไอชุน",
+    avatar:
+      "https://scontent.fbkk29-4.fna.fbcdn.net/v/t39.30808-6/296171381_201372028895003_4381235094819106291_n.png?_nc_cat=102&ccb=1-7&_nc_sid=e3f864&_nc_ohc=es-RF-6dqeAAX-lzZPf&tn=hb2bzZRQxS9fxVMW&_nc_ht=scontent.fbkk29-4.fna&oh=00_AfBI8SIHfUeDsTx9dS_cHW6Pyat4NHiZmPBWNMdpqnHTnw&oe=63943E2C",
     wl: {
       win: 0,
       lose: 0,
