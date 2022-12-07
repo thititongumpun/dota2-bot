@@ -110,4 +110,14 @@ export const players: Player[] = [
       lose: 0,
     },
   },
+  {
+    playerId: 0,
+    playerName: "เดอะนอส",
+    avatar:
+      "https://avatars.akamai.steamstatic.com/1f12d71ecc4d0a1590829bdb429408e686c7827c_full.jpg",
+    wl: {
+      win: 0,
+      lose: 0,
+    },
+  },
 ];

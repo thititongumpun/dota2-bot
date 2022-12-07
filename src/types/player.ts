@@ -31,6 +31,9 @@ export const getPlayerId = (playerName: string): number => {
     case "ไอฉิน":
       playerId = 194723630;
       break;
+    case "เดอะนอส":
+      playerId = 100719034;
+      break;
     default:
       playerId = 0;
       break;
@@ -49,4 +52,5 @@ export const playersName: string[] = [
   "ไอชุน",
   "ไอชุน",
   "ไอฉิน",
+  "เดอะนอส",
 ];
