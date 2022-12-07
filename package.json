@@ -9,8 +9,6 @@
     "start": "node dist/app.js"
   },
   "dependencies": {
-    "@ioki/node-ts-cache": "^7.0.1",
-    "@ioki/node-ts-cache-storage-memory": "^8.0.1",
     "@line/bot-sdk": "^7.5.2",
     "@types/compression": "^1.7.2",
     "@types/morgan": "^1.9.3",

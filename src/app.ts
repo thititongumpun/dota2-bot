@@ -8,13 +8,10 @@ import { getPlayerWL } from "./services/getPlayerwl";
 import { config, handleEvent } from "./config/line";
 import { StatsResponse } from "./types/stats";
 import { players } from "./data/players";
-import { CacheContainer } from "@ioki/node-ts-cache";
-import { MemoryStorage } from "@ioki/node-ts-cache-storage-memory";
 dotenv.config();
 
 const app: Express = express();
 const PORT = process.env.PORT || 8080;
-const statsCache = new CacheContainer(new MemoryStorage());
 
 app.use(morgan("tiny"));
 app.use(compression());
@@ -55,10 +52,6 @@ app.get("/", async (_: Request, res: Response): Promise<Response> => {
 });
 
 app.get("/stats", async (_: Request, res: Response) => {
-  const cacheStats = await statsCache.getItem<StatsResponse[]>("stats");
-  if (cacheStats) {
-    return res.status(200).send(cacheStats);
-  }
   let response: StatsResponse[] = [];
   for (let player of players) {
     const playerId = getPlayerId(player.playerName);
@@ -70,7 +63,6 @@ app.get("/stats", async (_: Request, res: Response) => {
       wl: playerWL,
     });
   }
-  await statsCache.setItem("stats", response, { ttl: 3600, isLazy: false });
   res.status(200).send(response);
 });
 
