@@ -57,18 +57,26 @@ app.get("/stats", async (_: Request, res: Response) => {
   if (statsCache) {
     return res.status(200).send(JSON.parse(statsCache));
   }
+  let playerId: number = 0;
+  const playerIds: number[] = [];
   for (let player of players) {
-    const playerId = getPlayerId(player.playerName);
-    const playerWL = await getPlayerWL(playerId);
+    playerId = getPlayerId(player.playerName);
+    playerIds.push(playerId);
     response.push({
       playerId: playerId,
       playerName: player.playerName,
       avatar: player.avatar,
-      wl: playerWL,
     });
   }
-  await redisClient.set("stats", JSON.stringify(response), { EX: 3600 });
-  res.status(200).send(response);
+  const getAllWL = await playerIds.map((p) => getPlayerWL(p));
+  const allWLPlayers = await Promise.all(getAllWL);
+
+  const result = response.map((stats, wl) =>
+    Object.assign({}, stats, allWLPlayers[wl])
+  );
+
+  await redisClient.set("stats", JSON.stringify(result), { EX: 3600 });
+  res.status(200).send(result);
 });
 
 app.listen(PORT, () => {

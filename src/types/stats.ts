@@ -7,5 +7,5 @@ export type StatsResponse = {
   playerId: number;
   playerName: string;
   avatar: string;
-  wl: string | Player;
+  wl?: string | Player;
 };
