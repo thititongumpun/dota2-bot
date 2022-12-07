@@ -34,7 +34,7 @@ export const players: Player[] = [
   {
     playerId: 0,
     playerName: "แครี่ที่ดีที่สุดในยุคนี้",
-    avatar: "http://f.ptcdn.info/980/025/000/1417055253-a111JPEG-o.jpg",
+    avatar: "https://f.ptcdn.info/980/025/000/1417055253-a111JPEG-o.jpg",
     wl: {
       win: 0,
       lose: 0,
