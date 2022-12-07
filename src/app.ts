@@ -1,5 +1,5 @@
-import { getPlayerId, playersName } from "./types/player";
-import express, { Express, NextFunction, Request, Response } from "express";
+import { getPlayerId } from "./types/player";
+import express, { Express, Request, Response } from "express";
 import morgan from "morgan";
 import compression from "compression";
 import * as dotenv from "dotenv";
@@ -8,6 +8,7 @@ import { getPlayerWL } from "./services/getPlayerwl";
 import { config, handleEvent } from "./config/line";
 import { StatsResponse } from "./types/stats";
 import { players } from "./data/players";
+import { redisClient } from "./config/redis";
 dotenv.config();
 
 const app: Express = express();
@@ -53,6 +54,10 @@ app.get("/", async (_: Request, res: Response): Promise<Response> => {
 
 app.get("/stats", async (_: Request, res: Response) => {
   let response: StatsResponse[] = [];
+  const statsCache = await redisClient.get("stats");
+  if (statsCache) {
+    return res.status(200).send(JSON.parse(statsCache));
+  }
   for (let player of players) {
     const playerId = getPlayerId(player.playerName);
     const playerWL = await getPlayerWL(playerId);
@@ -63,6 +68,7 @@ app.get("/stats", async (_: Request, res: Response) => {
       wl: playerWL,
     });
   }
+  await redisClient.set("stats", JSON.stringify(response), { EX: 3600 });
   res.status(200).send(response);
 });
 
