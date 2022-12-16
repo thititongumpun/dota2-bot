@@ -1,3 +1,4 @@
+import { getPlayerDisplayName } from './../services/getPlayerDisplayName';
 import { getPlayerId, playersName } from "./../types/player";
 import {
   Client,
@@ -15,7 +16,6 @@ export const config = {
 };
 
 const client: Client = new Client(config);
-
 export const handleEvent = async (
   event: WebhookEvent
 ): Promise<MessageAPIResponseBase | undefined> => {
@@ -25,6 +25,11 @@ export const handleEvent = async (
 
   const { replyToken } = event;
   const { text } = event.message;
+  const { userId } = event.source;
+
+  const a = await getPlayerDisplayName(userId);
+
+  console.log('aaaaaaaaaaa ' + a);;
 
   const playerId = getPlayerId(text);
 
