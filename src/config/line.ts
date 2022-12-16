@@ -29,7 +29,7 @@ export const handleEvent = async (
 
   const a = await getPlayerDisplayName(userId);
   
-  console.log('aaaaaaaaaaa ' + a);
+  console.log('aaaaaaaaaaa ' + JSON.stringify(a));
 
   const playerId = getPlayerId(text);
 
