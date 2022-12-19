@@ -12,8 +12,7 @@ const PORT = process.env.PORT || 8080;
 const options: CorsOptions = {
   origin: "*"
 }
-const dir = path.join(__dirname, 'public');
-console.log(dir);
+const dir = path.join(__dirname, 'public/images');
 
 app.use(morgan("tiny"));
 app.use(compression());
