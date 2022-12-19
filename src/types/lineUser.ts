@@ -1,4 +1,6 @@
 export type LineUserResponse = {
-  displayName: string;
   userId: string;
+  displayName: string;
+  pictureUrl: string;
+  language: string;
 }

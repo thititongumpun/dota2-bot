@@ -16,7 +16,6 @@ app.use(morgan("tiny"));
 app.use(compression());
 app.use(cors(options));
 app.use("/", routes);
-app.use(require("express-status-monitor")());
 app.use(express.json());
 
 app.listen(PORT, () => {

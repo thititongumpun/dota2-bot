@@ -1,3 +1,4 @@
+import { producer } from './kafka';
 import { getPlayerDisplayName } from './../services/getPlayerDisplayName';
 import { getPlayerId, playersName } from "./../types/player";
 import {
@@ -16,6 +17,7 @@ export const config = {
 };
 
 const client: Client = new Client(config);
+
 export const handleEvent = async (
   event: WebhookEvent
 ): Promise<MessageAPIResponseBase | undefined> => {
@@ -27,9 +29,17 @@ export const handleEvent = async (
   const { text } = event.message;
   const { userId } = event.source;
 
-  const a = await getPlayerDisplayName(userId);
-  
-  console.log('aaaaaaaaaaa ' + JSON.stringify(a));
+  const lineResponse = await getPlayerDisplayName(userId);
+  await producer.connect();
+  await producer.send({
+    topic: "apireq",
+    messages: [
+      {
+        key: lineResponse?.userId,
+        value: lineResponse?.displayName || ""
+      }
+    ]
+  })
 
   const playerId = getPlayerId(text);
 
