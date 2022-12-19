@@ -1,9 +1,9 @@
 import axios from "axios";
-import { Player } from "../types/stats";
+import { PlayerWL } from "../types/stats";
 
-export const getPlayerWL = async (playerId: number | undefined) => {
+export const getPlayerWL = async (playerId: number) => {
   try {
-    const { data } = await axios.get<Player>(
+    const { data } = await axios.get<PlayerWL>(
       `${process.env.APIPATH}/${playerId}/wl?limit=10`
     );
     return { playerId, wl: data };
