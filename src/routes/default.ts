@@ -1,3 +1,4 @@
+import { producer } from './../config/kafka';
 import { Router, Request, Response } from "express";
 
 export const defaultRoute = Router();

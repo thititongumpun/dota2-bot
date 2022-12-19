@@ -29,22 +29,29 @@ export const handleEvent = async (
   const { text } = event.message;
   const { userId } = event.source;
 
+  const playerId = getPlayerId(text);
+
+  const wl = await getPlayerWL(playerId);
+  let textResponse: string = JSON.stringify(wl);
+
   const lineResponse = await getPlayerDisplayName(userId);
+
+  const produceMsg = {
+    reqBy: lineResponse?.displayName,
+    msg: text,
+    response: wl
+  }
+
   await producer.connect();
   await producer.send({
     topic: "apireq",
     messages: [
       {
         key: lineResponse?.userId,
-        value: lineResponse?.displayName || ""
+        value: JSON.stringify(produceMsg)
       }
     ]
   })
-
-  const playerId = getPlayerId(text);
-
-  const wl = await getPlayerWL(playerId);
-  let textResponse: string = JSON.stringify(wl);
 
   if (playersName.indexOf(text) > -1) {
     const response: TextMessage = {
