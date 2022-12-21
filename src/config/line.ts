@@ -34,10 +34,7 @@ export const handleEvent = async (
   const wl = await getPlayerWL(playerId);
   let textResponse: string = JSON.stringify(wl);
 
-  const lineResponse = await getPlayerDisplayName(userId);
-
   const produceMsg = {
-    reqBy: lineResponse?.displayName,
     msg: text,
     response: wl
   }
@@ -47,7 +44,7 @@ export const handleEvent = async (
     topic: "apireq",
     messages: [
       {
-        key: lineResponse?.userId,
+        key: userId,
         value: JSON.stringify(produceMsg)
       }
     ]
