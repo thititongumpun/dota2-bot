@@ -11,9 +11,8 @@ const redisOptions: RedisClientOptions = ({
 
 export const redisClient = createClient(redisOptions);
 
-redisClient.on("error", function (err) {
-  console.log('cannot connect redis...');
-  throw err;
-});
+(async () => {
+  redisClient.on("error", (error) => console.error(`Error : ${error}`));
 
-redisClient.connect();
+  await redisClient.connect();
+})();

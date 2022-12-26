@@ -8,7 +8,6 @@ import path from 'path';
 dotenv.config();
 
 const app: Express = express();
-const PORT = process.env.PORT || 8080;
 const options: CorsOptions = {
   origin: "*"
 }
@@ -21,6 +20,4 @@ app.use("/", routes);
 app.use(express.json());
 app.use(express.static(dir));
 
-app.listen(PORT, () => {
-  console.log(`Application is live and listening on port ${PORT}`);
-});
+export default app;
