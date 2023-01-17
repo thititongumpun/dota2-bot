@@ -36,7 +36,7 @@ export const players: Player[] = [
   {
     playerId: 0,
     playerName: "แครี่ที่ดีที่สุดในยุคนี้",
-    avatar: `${DOMAIN}/images/thebest.png`,
+    avatar: `${DOMAIN}/images/thebest.jpg`,
     wl: {
       win: 0,
       lose: 0,
