@@ -15,13 +15,13 @@ statsRoute.get("/stats", async (_: Request, res: Response) => {
   }
   let playerId: number = 0;
   const playerIds: number[] = [];
-  for (let player of players) {
-    playerId = getPlayerId(player.playerName);
+  for (let i = 0; i < players.length; i++) {
+    playerId = getPlayerId(players[i].playerName);
     playerIds.push(playerId);
     response.push({
       playerId: playerId,
-      playerName: player.playerName,
-      avatar: player.avatar,
+      playerName: players[i].playerName,
+      avatar: players[i].avatar,
     });
   }
   const getAllWL = await playerIds.map((p) => getPlayerWL(p));
