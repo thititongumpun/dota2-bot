@@ -41,7 +41,7 @@ export const handleEvent = async (
 
   await producer.connect();
   await producer.send({
-    topic: "apireq",
+    topic: process.env.TOPIC!,
     messages: [
       {
         key: userId,
